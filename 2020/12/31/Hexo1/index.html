@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
+  </script>
+<meta name="description" content="前言　　当今市场上有着众多创作平台如知乎、微信公众好号、简书，为啥还要这么麻烦的去搭建一个个人博客？我想自己的答案就是想有一个安静的地方记录生活吧。不用注册登录账号、不用注意内容审核、不用担心文章消失，即使没有读者，我个人还是沉浸其中。 　　对于博客的搭建，静态站点对于动态站点而言，有着相对较快的访问速度，能托管在 github 上简单又快捷，于是选择了目前流行且免费的 Hexo 框架">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Hexo+GitHub搭建个人博客】一、框架建立">
+<meta property="og:url" content="http://example.com/2020/12/31/Hexo1/index.html">
+<meta property="og:site_name" content="chiayhon的小站">
+<meta property="og:description" content="前言　　当今市场上有着众多创作平台如知乎、微信公众好号、简书，为啥还要这么麻烦的去搭建一个个人博客？我想自己的答案就是想有一个安静的地方记录生活吧。不用注册登录账号、不用注意内容审核、不用担心文章消失，即使没有读者，我个人还是沉浸其中。 　　对于博客的搭建，静态站点对于动态站点而言，有着相对较快的访问速度，能托管在 github 上简单又快捷，于是选择了目前流行且免费的 Hexo 框架">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://z4a.net/images/2020/12/31/image539b863fea85a0b8.png">
+<meta property="og:image" content="https://z4a.net/images/2020/12/31/image4285b977a8308096.png">
+<meta property="og:image" content="https://z4a.net/images/2020/12/31/3.png">
+<meta property="article:published_time" content="2020-12-31T02:50:00.000Z">
+<meta property="article:modified_time" content="2021-01-25T01:19:19.562Z">
+<meta property="article:author" content="chiayhon">
+<meta property="article:tag" content="Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://z4a.net/images/2020/12/31/image539b863fea85a0b8.png">
+
+
+<link rel="canonical" href="http://example.com/2020/12/31/Hexo1/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>【Hexo+GitHub搭建个人博客】一、框架建立 | chiayhon的小站</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="chiayhon的小站" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">chiayhon的小站</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">欢迎光临</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%90%AD%E5%BB%BA%E5%87%86%E5%A4%87"><span class="nav-number">2.</span> <span class="nav-text">搭建准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Github-%E7%9A%84%E6%B3%A8%E5%86%8C"><span class="nav-number">2.1.</span> <span class="nav-text">Github 的注册</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-%E7%9A%84%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85"><span class="nav-number">2.2.</span> <span class="nav-text">Git 的下载与安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js%E4%B8%8B%E8%BD%BD"><span class="nav-number">2.3.</span> <span class="nav-text">Node.js下载</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA"><span class="nav-number">3.</span> <span class="nav-text">开始搭建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">更换主题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE"><span class="nav-number">5.</span> <span class="nav-text">博客配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%AB%99%E7%82%B9%E4%BF%A1%E6%81%AF"><span class="nav-number">5.1.</span> <span class="nav-text">配置站点信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%9A%E6%96%87%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1"><span class="nav-number">5.2.</span> <span class="nav-text">博文字数统计</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">chiayhon</p>
+  <div class="site-description" itemprop="description">渴望早睡晚起</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/31/Hexo1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="chiayhon">
+      <meta itemprop="description" content="渴望早睡晚起">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chiayhon的小站">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【Hexo+GitHub搭建个人博客】一、框架建立
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-12-31 10:50:00" itemprop="dateCreated datePublished" datetime="2020-12-31T10:50:00+08:00">2020-12-31</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-01-25 09:19:19" itemprop="dateModified" datetime="2021-01-25T09:19:19+08:00">2021-01-25</time>
+      </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.4k</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>　　当今市场上有着众多创作平台如知乎、微信公众好号、简书，为啥还要这么麻烦的去搭建一个个人博客？我想自己的答案就是想有一个安静的地方记录生活吧。不用注册登录账号、不用注意内容审核、不用担心文章消失，即使没有读者，我个人还是沉浸其中。</p>
+<p>　　对于博客的搭建，静态站点对于动态站点而言，有着相对较快的访问速度，能托管在 github 上简单又快捷，于是选择了目前流行且免费的 Hexo 框架</p>
+<a id="more"></a>
+
+<h1 id="搭建准备"><a href="#搭建准备" class="headerlink" title="搭建准备"></a>搭建准备</h1><p>　　在搭建前需要准备一下搭建环境，接下来的操作是在<strong>命令行</strong>中进行
+　　</p>
+<h2 id="Github-的注册"><a href="#Github-的注册" class="headerlink" title="Github 的注册"></a>Github 的注册</h2><p>　　注册一个 <a target="_blank" rel="noopener" href="https://github.com/join?source=login">Github</a> 账号
+　　</p>
+<h2 id="Git-的下载与安装"><a href="#Git-的下载与安装" class="headerlink" title="Git 的下载与安装"></a>Git 的下载与安装</h2><p>　　<a target="_blank" rel="noopener" href="https://git-scm.com/downloads">下载Git</a> 并进行安装，最后一步添加路径时选择<code>Use Git from the Windows Command Prompt</code>，安装完成后在命令提示符中输入<code>git --version</code>验证是否安装成功</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> user<span class="variable">.email</span> <span class="string">&quot;你的GitHub邮箱&quot;</span></span><br><span class="line"></span><br><span class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> user<span class="variable">.name</span> <span class="string">&quot;你的GitHub用户名&quot;</span></span><br></pre></td></tr></table></figure>
+<p>　　Git 是版本控制系统，通俗的说就是提交更改项目等操作的工具。Git 在提交更改的时候，会需要提交者的邮箱和用户名，这可以在命令行窗口通过以下命令来设置：，–global 代表全局配置，若以后想为单个项目配置，则在项目文件夹输入去掉–global 后的命令
+　　</p>
+<h2 id="Node-js下载"><a href="#Node-js下载" class="headerlink" title="Node.js下载"></a>Node.js下载</h2><p>　　<a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">下载 Node.js</a> 并安装
+　　　　</p>
+<h1 id="开始搭建"><a href="#开始搭建" class="headerlink" title="开始搭建"></a>开始搭建</h1><p>　　在<strong>命令行</strong>中输入下面命令来安装 Hexo，安装完成后输入<code>hexo -v</code>验证是否安装成功。
+　　</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure>
+<p>　　-g表示全局安装，会将 Hexo 命令加入环境变量中，以使其在 cmd 下有效。</p>
+<p>　　<strong>新建</strong>存放博客的目录，然后在<strong>该路径下执行</strong>初始化命令：
+　　</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">init</span></span><br></pre></td></tr></table></figure>
+<p>　　执行完毕后，输入<code>dir</code>将会生成以下文件结构：
+　　</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── node_modules       <span class="regexp">//</span>依赖安装目录</span><br><span class="line">├── scaffolds          <span class="regexp">//</span>模板文件夹，新建的文章将会从此目录下的文件中继承格式</span><br><span class="line">|   ├── draft.md         <span class="regexp">//</span>草稿模板</span><br><span class="line">|   ├── page.md          <span class="regexp">//</span>页面模板</span><br><span class="line">|   └── post.md          <span class="regexp">//</span>文章模板</span><br><span class="line">├── source             <span class="regexp">//</span>资源文件夹，用于放置图片、数据、文章等资源</span><br><span class="line">|   └── _posts           <span class="regexp">//</span>文章目录</span><br><span class="line">├── themes             <span class="regexp">//</span>主题文件夹</span><br><span class="line">|   └── landscape        <span class="regexp">//</span>默认主题</span><br><span class="line">├── .gitignore         <span class="regexp">//</span>指定不纳入git版本控制的文件</span><br><span class="line">├── _config.yml        <span class="regexp">//</span>站点配置文件</span><br><span class="line">├── db.json            </span><br><span class="line">├── package.json</span><br><span class="line">└── package-lock.json</span><br></pre></td></tr></table></figure>
+<p>　　在根目录下执行如下命令或 <code>hexo s</code> 启动 hexo 的内置 Web 服务器 
+　　</p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">server</span></span><br></pre></td></tr></table></figure>
+<p>　　该命令将会调用Markdown引擎解析项目中的博客内容生成网页资源，资源将会存于内存中，所以用户执行完命令之后在项目文件夹中是找不到相关的Web资源目录的。该命令还会启动一个简易的 Web服务器用于提供对内存中网页资源的访问（工作机制类似于webpack-dev-server），Web 服务器默认监听 4000 端口，用户可在浏览器中通过地址 <code>localhost:4000</code> 访问博客。</p>
+<p><img src="https://z4a.net/images/2020/12/31/image539b863fea85a0b8.png" alt="Hexo默认首页"></p>
+<p>　　当 4000 端口已被其他应用占用时，可以添加 -p / –port 参数来设置 Web 服务监听的端口号，如 <code>hexo s -p 8000</code></p>
+<h1 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h1><p>　　当然现在这个页面太丑了，换一个比较入眼的主题，这里选择<code>Next</code>主题示例，在博客根目录右键打开<code>Git Bash here</code>，输入如下命令</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:<span class="regexp">//gi</span>thub.com<span class="regexp">/next-theme/</span>hexo-theme-<span class="keyword">next</span> themes/<span class="keyword">next</span></span><br></pre></td></tr></table></figure>
+<p>　　等待下载完成，打开站点配置文件<code>_config.yml</code> 文件，将 <code>theme</code> 字段的值修改为 <code>next</code>，即：</p>
+<figure class="highlight yml"><figcaption><span>/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<p>　　然后重启内在服务器 <code>hexo s</code> 即可看到新主题：</p>
+<p><img src="https://z4a.net/images/2020/12/31/image4285b977a8308096.png" alt="Next主题"></p>
+<figure class="highlight yml"><figcaption><span>/themes/next/config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Schemes</span></span><br><span class="line"><span class="comment">#scheme: Muse</span></span><br><span class="line"><span class="comment">#scheme: Mist</span></span><br><span class="line"><span class="comment">#scheme: Pisces</span></span><br><span class="line"><span class="attr">scheme:</span> <span class="string">Gemini</span>      <span class="comment">#选择Gemini风格</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="博客配置"><a href="#博客配置" class="headerlink" title="博客配置"></a>博客配置</h1><p>　　框架建立起来了，这时候则需要配置站点的信息，首先先介绍框架目录下比较重要的文件和文件夹：</p>
+<ul>
+<li>_config.yml :配置文件，配置了<strong>博客的各项设置</strong></li>
+<li>source :资源文件夹，里面有所有的<strong>博文或是独立页面</strong></li>
+<li>themes :主题文件夹，包含了一个或多个<strong>主题文件夹</strong></li>
+<li>scaffolds :模版文件夹,新建文章时，Hexo 会根据文件夹里的<strong>模板</strong>来建立文件。</li>
+</ul>
+<h2 id="配置站点信息"><a href="#配置站点信息" class="headerlink" title="配置站点信息"></a>配置站点信息</h2><p>　　打开 <code>_config.yml 文件</code>，可以对站点进行配置，<code>#</code>后面表示注释
+　　</p>
+<figure class="highlight yml"><figcaption><span>/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">chiayhon的小站</span>       <span class="comment"># 站点主题，标签页主题</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">&#x27;欢迎光临&#x27;</span>         <span class="comment"># 副标题</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">&#x27;渴望早睡晚起&#x27;</span>     <span class="comment"># 网站描述</span></span><br><span class="line"><span class="attr">keywords:</span> <span class="string">chiayhon&#x27;s</span> <span class="string">blog</span>       <span class="comment"># 网站关键字</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">chiayhon</span>                <span class="comment"># 作者名字</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh-CN</span>                 <span class="comment"># 语言设置为中文</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="string">&#x27;Asia/Shanghai&#x27;</span>       <span class="comment"># 时区设为上海</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="博文字数统计"><a href="#博文字数统计" class="headerlink" title="博文字数统计"></a>博文字数统计</h2><p>　　先安装字数统计插件:</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-<span class="built_in">word</span>-counter</span><br></pre></td></tr></table></figure>
+<p>　　然后在博客配置文件末尾添加：</p>
+<figure class="highlight yml"><figcaption><span>/config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">symbols_count_time:</span></span><br><span class="line">  <span class="attr">symbols:</span> <span class="literal">true</span>    <span class="comment"># 帖子字数</span></span><br><span class="line">  <span class="attr">time:</span> <span class="literal">true</span>    <span class="comment"># 预计阅读时间</span></span><br><span class="line">  <span class="attr">total_symbols:</span> <span class="literal">false</span>    <span class="comment"># 在页脚显示所有帖子总字数</span></span><br><span class="line">  <span class="attr">total_time:</span> <span class="literal">false</span>    <span class="comment"># 在页脚显示所有帖子的阅读时间</span></span><br></pre></td></tr></table></figure>
+<p>　　配置完博客如下：</p>
+<p><img src="https://z4a.net/images/2020/12/31/3.png" alt="信息配置完成"></p>
+<p>　　</p>
+<div class="note success"><p>至此，一个最基本的框架已经被搭建起来了，框架建立篇到此结束，本框架版本是基于Hexo 5.3.0 + Node.js 12.13.0 + Git 2.23.0 + Next 8.1.0搭建的，不同版本可能会不兼容，若是安装出错需核对版本。</p>
+</div>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/12/31/Hexo2/" rel="next" title="【Hexo+GitHub搭建个人博客】二、框架使用及技巧">
+                  【Hexo+GitHub搭建个人博客】二、框架使用及技巧 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chiayhon</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
