@@ -23,19 +23,20 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"chiayhon-cell.gitee.io","root":"/","images":"/images","scheme":"Muse","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
-<meta name="description" content="渴望早睡晚起">
-<meta property="og:type" content="website">
-<meta property="og:title" content="chiayhon的小站">
-<meta property="og:url" content="http://chiayhon-cell.gitee.io/tags/Hexo/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【集合】ArrayList详解">
+<meta property="og:url" content="http://chiayhon-cell.gitee.io/2021/01/29/%E3%80%90%E9%9B%86%E5%90%88%E3%80%91ArrayList%E8%AF%A6%E8%A7%A3/index.html">
 <meta property="og:site_name" content="chiayhon的小站">
-<meta property="og:description" content="渴望早睡晚起">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-01-29T12:03:00.000Z">
+<meta property="article:modified_time" content="2021-01-29T12:04:27.347Z">
 <meta property="article:author" content="chiayhon">
-<meta property="article:tag" content="chiayhon&#39;s blog">
+<meta property="article:tag" content="JAVA SE">
+<meta property="article:tag" content="集合框架">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://chiayhon-cell.gitee.io/tags/Hexo/">
+<link rel="canonical" href="http://chiayhon-cell.gitee.io/2021/01/29/%E3%80%90%E9%9B%86%E5%90%88%E3%80%91ArrayList%E8%AF%A6%E8%A7%A3/">
 
 
 <script class="page-configurations">
@@ -43,11 +44,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
-<title>标签: Hexo | chiayhon的小站</title>
+<title>【集合】ArrayList详解 | chiayhon的小站</title>
   
 
 
@@ -200,70 +201,96 @@
 </noscript>
 
 
-    <div class="main-inner tag posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h2 class="collection-header">Hexo
-          <small>标签</small>
-        </h2>
-      </div>
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://chiayhon-cell.gitee.io/2021/01/29/%E3%80%90%E9%9B%86%E5%90%88%E3%80%91ArrayList%E8%AF%A6%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="chiayhon">
+      <meta itemprop="description" content="渴望早睡晚起">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chiayhon的小站">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【集合】ArrayList详解
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+
+      <time title="创建时间：2021-01-29 20:03:00 / 修改时间：20:04:27" itemprop="dateCreated datePublished" datetime="2021-01-29T20:03:00+08:00">2021-01-29</time>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>0</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2020-12-31T12:48:42+08:00"
-              content="2020-12-31">
-          12-31
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/12/31/Hexo2/" itemprop="url">
-            <span itemprop="name">【Hexo+GitHub搭建个人博客】二、框架使用及技巧</span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JAVA-SE/" rel="tag"># JAVA SE</a>
+              <a href="/tags/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/" rel="tag"># 集合框架</a>
+          </div>
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/01/27/%E3%80%90%E9%9B%86%E5%90%88%E3%80%91Collection%E6%8E%A5%E5%8F%A3/" rel="prev" title="【集合】Collection接口">
+                  <i class="fa fa-chevron-left"></i> 【集合】Collection接口
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
+</div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2020-12-31T10:50:00+08:00"
-              content="2020-12-31">
-          12-31
-        </time>
-      </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/12/31/Hexo1/" itemprop="url">
-            <span itemprop="name">【Hexo+GitHub搭建个人博客】一、框架建立</span>
-          </a>
-      </div>
 
-      
-    </header>
-  </article>
 
-    </div>
-  </div>
-  
-  
-  
+
 
 
 <script>
