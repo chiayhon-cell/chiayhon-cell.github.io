@@ -30,13 +30,11 @@
 <meta property="og:site_name" content="chiayhon的小站">
 <meta property="og:description" content="前言本篇主要介绍 Collection接口">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2021/01/27/%E3%80%90%E9%9B%86%E5%90%88%E3%80%91Collection%E6%8E%A5%E5%8F%A3/image-20210128144817523.png">
 <meta property="article:published_time" content="2021-01-27T13:55:24.000Z">
-<meta property="article:modified_time" content="2021-01-28T09:49:49.010Z">
+<meta property="article:modified_time" content="2021-01-28T13:19:19.500Z">
 <meta property="article:author" content="chiayhon">
 <meta property="article:tag" content="chiayhon&#39;s blog">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/01/27/%E3%80%90%E9%9B%86%E5%90%88%E3%80%91Collection%E6%8E%A5%E5%8F%A3/image-20210128144817523.png">
 
 
 <link rel="canonical" href="http://example.com/2021/01/27/%E3%80%90%E9%9B%86%E5%90%88%E3%80%91Collection%E6%8E%A5%E5%8F%A3/">
@@ -152,7 +150,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Collection%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%B6API%E7%AE%80%E4%BB%8B"><span class="nav-text">1. Collection接口及其API简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E4%BB%8B%E7%BB%8D"><span class="nav-text">1.1 介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-Collection%E6%8E%A5%E5%8F%A3Api%E4%B8%80%E8%A7%88"><span class="nav-text">1.2 Collection接口Api一览</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C"><span class="nav-text">1.2.1 查询操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2-%E4%BF%AE%E6%94%B9%E6%93%8D%E4%BD%9C"><span class="nav-text">1.2.2 修改操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-3-%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C"><span class="nav-text">1.2.3 批量操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-4-%E5%B9%B6%E8%A1%8C%E6%93%8D%E4%BD%9C"><span class="nav-text">1.2.4 并行操作</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%BA%95%E5%B1%82%E6%BA%90%E7%A0%81"><span class="nav-text">2. 底层源码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-Collection%E6%8E%A5%E5%8F%A3%E9%83%A8%E5%88%86%E6%BA%90%E7%A0%81"><span class="nav-text">2.1 Collection接口部分源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-AbstractCollection%E9%83%A8%E5%88%86%E6%BA%90%E7%A0%81"><span class="nav-text">2.2 AbstractCollection部分源码</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Collection%E6%8E%A5%E5%8F%A3%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%85%B6API"><span class="nav-text">1. Collection接口简介及其API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E4%BB%8B%E7%BB%8D"><span class="nav-text">1.1 介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-Collection%E6%8E%A5%E5%8F%A3Api%E4%B8%80%E8%A7%88"><span class="nav-text">1.2 Collection接口Api一览</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C"><span class="nav-text">1.2.1 查询操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2-%E4%BF%AE%E6%94%B9%E6%93%8D%E4%BD%9C"><span class="nav-text">1.2.2 修改操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-3-%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C"><span class="nav-text">1.2.3 批量操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-4-%E5%B9%B6%E8%A1%8C%E6%93%8D%E4%BD%9C"><span class="nav-text">1.2.4 并行操作</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%BA%95%E5%B1%82%E6%BA%90%E7%A0%81"><span class="nav-text">2. 底层源码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-Collection%E6%8E%A5%E5%8F%A3%E9%83%A8%E5%88%86%E6%BA%90%E7%A0%81"><span class="nav-text">2.1 Collection接口部分源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-AbstractCollection%E9%83%A8%E5%88%86%E6%BA%90%E7%A0%81"><span class="nav-text">2.2 AbstractCollection部分源码</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -247,7 +245,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-01-28 17:49:49" itemprop="dateModified" datetime="2021-01-28T17:49:49+08:00">2021-01-28</time>
+        <time title="修改时间：2021-01-28 21:19:19" itemprop="dateModified" datetime="2021-01-28T21:19:19+08:00">2021-01-28</time>
       </span>
 
   
@@ -258,7 +256,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>24k</span>
+      <span>25k</span>
     </span>
 </div>
 
@@ -272,7 +270,7 @@
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本篇主要介绍 Collection接口</p>
 <a id="more"></a>
 
-<h1 id="1-Collection接口及其API简介"><a href="#1-Collection接口及其API简介" class="headerlink" title="1. Collection接口及其API简介"></a>1. Collection接口及其API简介</h1><h2 id="1-1-介绍"><a href="#1-1-介绍" class="headerlink" title="1.1 介绍"></a>1.1 介绍</h2><p>　　在了解 Collection 接口之前，需要明白两点：什么是 <code>Collection</code>？为什么要定义成接口？</p>
+<h1 id="1-Collection接口简介及其API"><a href="#1-Collection接口简介及其API" class="headerlink" title="1. Collection接口简介及其API"></a>1. Collection接口简介及其API</h1><p>　　在了解 Collection 接口之前，需要明白两点：什么是 <code>Collection</code>？为什么要定义成接口？</p>
 <p>　　在思考第一个问题之前，不妨先思考这么一个问题：假如让你去开发java的集合框架，你的思路是什么？很显然，最简单的方式就是直接定义几个类，分别实现线性表、栈、队列、集合、哈希表等等数据结构。这就引申出了几个问题：</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">1.</span> 假如用户根据自身实际场景想用自己的方式实现一个数据结构，应该如何操作？</span><br><span class="line"><span class="bullet">2.</span> 假如用户开始使用了无序线性表，因为需求改变要使用有序线性表，应该怎么操作？</span><br><span class="line"><span class="bullet">3.</span> 假如开发者要对已有的API进行升级，用在哈希表中添加更高效的方法实现，需要改动多少东西？</span><br></pre></td></tr></table></figure>
 <p>　　其实归根结底，就是<strong>维护和扩展</strong>成本的问题。那么问题又来了，在java中集合是怎么设计的呢？仔细端详整个集合框架，不难发现有以下特点：</p>
@@ -334,14 +332,12 @@
     </div>
 </div>
 
-
-
-<p>　　到这里就很清楚： <code>Collection</code> 是作为集合框架的根接口，高度抽象出了具体集合的公共方法，便于集合的扩展与维护。那么什么是 <code>Collection</code> 呢？</p>
+<h2 id="1-1-介绍"><a href="#1-1-介绍" class="headerlink" title="1.1 介绍"></a>1.1 介绍</h2><p>　　到这里就很清楚： <code>Collection</code> 是集合框架的根接口，高度抽象出了具体集合的公共方法，便于集合的扩展与维护。那么什么是 <code>Collection</code> 呢？</p>
 <p>　　关于 <code>Collection</code> ，<a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/tutorial/collections/interfaces/collection.html">官方文档</a>是这么定义的：</p>
 <blockquote>
 <p>A <code>Collection</code> represents a group of objects known as its elements. The <code>Collection</code> interface is used to pass around collections of objects where maximum generality is desired.</p>
 </blockquote>
-<p>　　即 <code>Collection</code> 是一组对象的统称，这些对象被称为它的元素。</p>
+<p>　　即 <code>Collection</code> 是一组对象的统称，这些对象被称为它的元素。一般我们把 <code>Collection</code> 称为单列集合。</p>
 <div class='spoiler collapsed'>
     <div class='spoiler-title'>
         Collection源码文档注释
@@ -363,10 +359,8 @@
 
 <br>
 
-<p>　　<strong>总结：Collection接口是List、Set等子接口高度抽象出来的接口，它包含了这些集合的基本操作。实现了此接口的集合，存储的是一组对象(相对于Map集合)</strong></p>
-<h2 id="1-2-Collection接口Api一览"><a href="#1-2-Collection接口Api一览" class="headerlink" title="1.2 Collection接口Api一览"></a>1.2 Collection接口Api一览</h2><img src="/2021/01/27/%E3%80%90%E9%9B%86%E5%90%88%E3%80%91Collection%E6%8E%A5%E5%8F%A3/image-20210128144817523.png" class="" title="image-20210128144817523">
-
-<p>由图中我们可以看出：</p>
+<p>　　<strong>总结：Collection即单列集合，统一定义了一套单列集合的接口。Collection接口是List、Set等子接口高度抽象出来的接口，它包含了这些集合的基本操作。</strong></p>
+<h2 id="1-2-Collection接口Api一览"><a href="#1-2-Collection接口Api一览" class="headerlink" title="1.2 Collection接口Api一览"></a>1.2 Collection接口Api一览</h2><p>由图中我们可以看出：</p>
 <ul>
 <li><p>重写了Iterable接口的iterator方法。</p>
 </li>
@@ -510,6 +504,13 @@
 
 
 
+<p>参考资料:</p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/89891/what-are-the-benefits-of-the-iterator-interface-in-java">https://stackoverflow.com/questions/89891/what-are-the-benefits-of-the-iterator-interface-in-java</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/collections/overview.html">https://docs.oracle.com/javase/8/docs/technotes/guides/collections/overview.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903460194762760">https://juejin.cn/post/6844903460194762760</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/yajunren/article/details/10312845">https://blog.csdn.net/yajunren/article/details/10312845</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html">https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/jyg0723/article/details/80498840">https://blog.csdn.net/jyg0723/article/details/80498840</a></p>
 <p>参考资料:</p>
 <p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/89891/what-are-the-benefits-of-the-iterator-interface-in-java">https://stackoverflow.com/questions/89891/what-are-the-benefits-of-the-iterator-interface-in-java</a></p>
 <p><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/collections/overview.html">https://docs.oracle.com/javase/8/docs/technotes/guides/collections/overview.html</a></p>
