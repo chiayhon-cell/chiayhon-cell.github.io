@@ -23,17 +23,23 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"chiayhon-cell.gitee.io","root":"/","images":"/images","scheme":"Muse","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
+<meta name="description" content="前言">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【集合】ArrayList详解">
 <meta property="og:url" content="http://chiayhon-cell.gitee.io/2021/01/29/%E3%80%90%E9%9B%86%E5%90%88%E3%80%91ArrayList%E8%AF%A6%E8%A7%A3/index.html">
 <meta property="og:site_name" content="chiayhon的小站">
+<meta property="og:description" content="前言">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://chiayhon-cell.gitee.io/2021/01/29/%E3%80%90%E9%9B%86%E5%90%88%E3%80%91ArrayList%E8%AF%A6%E8%A7%A3/image-20210129213343396.png">
+<meta property="og:image" content="http://chiayhon-cell.gitee.io/2021/01/29/%E3%80%90%E9%9B%86%E5%90%88%E3%80%91ArrayList%E8%AF%A6%E8%A7%A3/image-20210129213321305.png">
+<meta property="og:image" content="http://chiayhon-cell.gitee.io/2021/01/29/%E3%80%90%E9%9B%86%E5%90%88%E3%80%91ArrayList%E8%AF%A6%E8%A7%A3/image-20210129220939720.png">
 <meta property="article:published_time" content="2021-01-29T12:03:00.000Z">
-<meta property="article:modified_time" content="2021-01-29T12:04:27.347Z">
+<meta property="article:modified_time" content="2021-01-29T15:19:05.791Z">
 <meta property="article:author" content="chiayhon">
 <meta property="article:tag" content="JAVA SE">
 <meta property="article:tag" content="集合框架">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://chiayhon-cell.gitee.io/2021/01/29/%E3%80%90%E9%9B%86%E5%90%88%E3%80%91ArrayList%E8%AF%A6%E8%A7%A3/image-20210129213343396.png">
 
 
 <link rel="canonical" href="http://chiayhon-cell.gitee.io/2021/01/29/%E3%80%90%E9%9B%86%E5%90%88%E3%80%91ArrayList%E8%AF%A6%E8%A7%A3/">
@@ -136,7 +142,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -149,6 +155,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-ArrayList%E5%BA%95%E5%B1%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-text">1. ArrayList底层数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-ArrayList%E9%9B%86%E5%90%88%E4%BB%8B%E7%BB%8D"><span class="nav-text">1.1 ArrayList集合介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E6%95%B0%E7%BB%84%E7%BB%93%E6%9E%84%E4%BB%8B%E7%BB%8D"><span class="nav-text">1.2 数组结构介绍</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-ArrayList%E7%BB%A7%E6%89%BF%E4%BD%93%E7%B3%BB"><span class="nav-text">2. ArrayList继承体系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-ArrayList%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90"><span class="nav-text">3. ArrayList源码分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E7%B1%BB%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="nav-text">3.1 类的属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="nav-text">3.2 构造方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-1-%E7%A9%BA%E5%8F%82%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="nav-text">3.2.1 空参构造方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-1-%E6%9C%89%E5%8F%82%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="nav-text">3.2.1 有参构造方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-%E6%B7%BB%E5%8A%A0%E6%96%B9%E6%B3%95"><span class="nav-text">3.3 添加方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-%E5%88%A0%E9%99%A4%E6%96%B9%E6%B3%95"><span class="nav-text">3.4 删除方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-%E4%BF%AE%E6%94%B9%E6%96%B9%E6%B3%95"><span class="nav-text">3.5 修改方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-6-%E6%9F%A5%E6%89%BE%E6%96%B9%E6%B3%95"><span class="nav-text">3.6 查找方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-7-%E8%BD%AC%E6%8D%A2%E6%96%B9%E6%B3%95"><span class="nav-text">3.7 转换方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-8-%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="nav-text">3.8 迭代器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-9-%E5%88%A4%E6%96%AD%E6%96%B9%E6%B3%95"><span class="nav-text">3.9 判断方法</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -237,7 +244,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-01-29 20:03:00 / 修改时间：20:04:27" itemprop="dateCreated datePublished" datetime="2021-01-29T20:03:00+08:00">2021-01-29</time>
+      <time title="创建时间：2021-01-29 20:03:00 / 修改时间：23:19:05" itemprop="dateCreated datePublished" datetime="2021-01-29T20:03:00+08:00">2021-01-29</time>
     </span>
 
   
@@ -248,7 +255,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>0</span>
+      <span>5.8k</span>
     </span>
 </div>
 
@@ -259,7 +266,132 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><a id="more"></a>
+
+
+
+<h1 id="1-ArrayList底层数据结构"><a href="#1-ArrayList底层数据结构" class="headerlink" title="1. ArrayList底层数据结构"></a>1. ArrayList底层数据结构</h1><div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        Arraylist文档注释
+    </div>
+    <div class='spoiler-content'>
+        <p>　　<code>List</code>接口的可调整大小的数组实现。 实现所有可选的<code>List</code>操作，并允许所有元素，包括null 。 除了实现<code>List</code>接口之外，此类还提供一些方法来操纵内部用于存储<code>List</code>的数组的大小。 （此类与<code>Vector</code>大致等效，但它是不同步的。）<br><code>　　size</code> ， <code>isEmpty</code> ， <code>get</code> ， <code>set</code> ， <code>iterator</code>和<code>listIterator</code>操作在常数时间内运行。 加法运算以摊销的固定时间运行，即，添加n个元素需要<code>O（n）</code>时间。 所有其他操作均以线性时间运行（大致而言）。 与<code>LinkedList</code>实现相比，常数因子较低。<br>　　每个<code>ArrayList</code>实例都有一个容量。 容量是用于在该<code>List</code>中存储元素的数组的大小。 它总是至少与该<code>List</code>大小一样大。 将元素添加到<code>ArrayList</code>后，其容量会自动增长。 除了添加元素具有固定的摊销时间成本外，没有指定增长策略的详细信息。<br>　　应用程序可以使用<code>sureCapacity</code>操作在添加大量元素之前增加<code>ArrayList</code>实例的容量。 这可以减少增量重新分配的数量。<br>　　请注意，此实现未同步。 如果多个线程同时访问<code>ArrayList</code>实例，并且至少有一个线程在结构上修改该<code>List</code>，则必须在外部进行同步。 （结构修改是添加或删除一个或多个元素或显式调整后备数组大小的任何操作；仅设置元素的值不是结构修改。）这通常是通过在自然封装该该<code>List</code>的某个对象上进行同步来实现的。 如果不存在这样的对象，则应使用<code>Collections</code>.<code>synchronizedList</code>方法“包装”该<code>List</code>。 最好在创建时完成此操作，以防止意外的不同步访问该<code>List</code>：</p>
+<pre><code> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List list = Collections.synchronizedList(<span class="keyword">new</span> ArrayList(...));</span><br></pre></td></tr></table></figure></code></pre>
+<p>　　此类的<code>iterator</code>和<code>listIterator</code>方法返回的iterator是<code>fail—fast</code> (快速失败)的：如果在创建迭代器之后的任何时间以任何方式对该<code>List</code>进行结构修改，则除了通过迭代器自己的<code>remove</code>或add方法之外，迭代器都会抛出<code>ConcurrentModificationException</code> 。 因此，面对并发修改，迭代器会快速干净地失败，而不会在未来的不确定时间冒着任意，不确定的行为的风险。<br>　　请注意，迭代器的快速失败行为无法得到保证，因为通常来说，在存在不同步的并发修改的情况下，不可能做出任何严格的保证。 快速失败的迭代器会尽最大努力抛出<code>ConcurrentModificationException</code> 。 因此，编写依赖于此异常的程序的正确性是错误的：迭代器的快速失败行为应仅用于检测错误。<br>　　此类是<code>Java Collections Framework</code>的成员。</p>
+
+    </div>
+</div>
+
+<h2 id="1-1-ArrayList集合介绍"><a href="#1-1-ArrayList集合介绍" class="headerlink" title="1.1 ArrayList集合介绍"></a>1.1 ArrayList集合介绍</h2><p>　　通过阅读文档注释我们可以得知:</p>
+<ul>
+<li><strong>底层数据结构</strong>：<code>ArrayList</code>基于数组实现的<code>List</code>类，它的底层是用数组实现的索引序列；</li>
+<li><strong>是否允许null</strong>：<code>ArrayList</code><strong>允许null</strong>元素；</li>
+<li><strong>容量相关</strong>：<code>ArrayList</code>的<strong>容量可以自动增长</strong>，通过<code>ensureCapacity</code>方法一次性增加容量，以减少增加重分配的次数提高性能；</li>
+<li><strong>线程安全</strong>：<code>ArrayList</code>是线程不安全的，当多条线程访问同一个<code>ArrayList</code>集合时，程序需要手动保证该集合的同步性，而Vector则是线程安全的；</li>
+<li><strong>迭代器相关：</strong><code>ArrayList</code>的iterator和<code>listIterator</code>方法返回的迭代器是<strong>fail-fast</strong>的</li>
+</ul>
+<h2 id="1-2-数组结构介绍"><a href="#1-2-数组结构介绍" class="headerlink" title="1.2 数组结构介绍"></a>1.2 数组结构介绍</h2><p>　　ArrayList的底层数据结构是用一个Object类型的数组实现元素的存储的，如下图：</p>
+<img src="/2021/01/29/%E3%80%90%E9%9B%86%E5%90%88%E3%80%91ArrayList%E8%AF%A6%E8%A7%A3/image-20210129213343396.png" class="" title="image-20210129213343396">
+
+<p>说明：底层的数据结构就是数组，数组元素类型为Object类型，即可以存放所有类型数据。我们对ArrayList类的实例的所有的操作底层都是基于数组的。</p>
+<h1 id="2-ArrayList继承体系"><a href="#2-ArrayList继承体系" class="headerlink" title="2. ArrayList继承体系"></a>2. ArrayList继承体系</h1><p>　　ArrayList在源码中的定义：</p>
+<figure class="highlight java"><figcaption><span>Java.util.ArrayList</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayList</span>&lt;<span class="title">E</span>&gt; </span></span><br><span class="line"><span class="class">    		<span class="keyword">extends</span> <span class="title">AbstractList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    				<span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">RandomAccess</span>, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br></pre></td></tr></table></figure>
+<p> 　　结构层次图：</p>
+<img src="/2021/01/29/%E3%80%90%E9%9B%86%E5%90%88%E3%80%91ArrayList%E8%AF%A6%E8%A7%A3/image-20210129213321305.png" class="" title="image-20210129213321305">
+
+<ul>
+<li><code>ArrayList</code> &lt; E &gt;：说明<code>ArrayList</code>支持泛型。</li>
+<li>继承<code>AbstractList</code> ：继承了<code>AbstractList</code>。<code>AbstractList</code>实现了部分List集合的通用方法，继承提高了代码的复用，提升开发效率。</li>
+<li>实现了  <code>List&lt;E&gt;</code> 接口：实现了<code>List</code>接口的类需要遵守接口中的常规协定去编写List集合的方法。为什么<code>AbstractList</code>中实现了List接口，在子类<code>ArrayList</code>中还要再实现一次？其实并没有什么特别作用，这是开发人员遗留下的一个<a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/2165204/why-does-linkedhashsete-extend-hashsete-and-implement-sete">小瑕疵</a></li>
+<li>实现了<code>RandomAccess</code>接口：标记性接口，实现了该接口的类支持快速随机访问。</li>
+<li>实现了<code>Cloneable</code>接口：标记性接口，实现了该接口的类支持使用<code>Object</code>.<code>Clone</code>()方法</li>
+<li>实现了<code>Serializable</code>接口：标记性接口，实现了该接口的类支持序列化操作</li>
+</ul>
+<h1 id="3-ArrayList源码分析"><a href="#3-ArrayList源码分析" class="headerlink" title="3. ArrayList源码分析"></a>3. ArrayList源码分析</h1><h2 id="3-1-类的属性"><a href="#3-1-类的属性" class="headerlink" title="3.1 类的属性"></a>3.1 类的属性</h2><p>　　<code>ArrayList</code> 的属性如下图：</p>
+<img src="/2021/01/29/%E3%80%90%E9%9B%86%E5%90%88%E3%80%91ArrayList%E8%AF%A6%E8%A7%A3/image-20210129220939720.png" class="" title="image-20210129220939720">
+
+<p>　　接下来便逐一介绍相关属性的意义：</p>
+<figure class="highlight java"><figcaption><span>ArrayList字段</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayList</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">        <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">RandomAccess</span>, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span>&#123;</span><br><span class="line">    <span class="comment">//序列化机制中验证版本一致性的版本号，为的是保持版本的兼容性</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">8683452581122892189L</span>;</span><br><span class="line">    <span class="comment">//默认初始容量</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_CAPACITY = <span class="number">10</span>;</span><br><span class="line">    <span class="comment">//由transient修饰的Object类型数组，这便是ArrayList底层数据结构</span></span><br><span class="line">    <span class="keyword">transient</span> Object[] elementData;</span><br><span class="line">    <span class="comment">//ArrayList集合包含的元素数</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> size;</span><br><span class="line">    <span class="comment">//静态的空对象数组实例</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Object[] EMPTY_ELEMENTDATA = &#123;&#125;;</span><br><span class="line">    <span class="comment">//静态的默认空对象数组实例</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = &#123;&#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//从AbstractList继承的属性。表示已对该List进行结构修改的次数。 即对ArrayList进行增删改查的次数</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">transient</span> <span class="keyword">int</span> modCount = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>　　说明：</p>
+<ul>
+<li>transient关键字：可以看出来<code>ArrayList</code>底层数组<code>elementData</code>和记录<code>ArrayList</code>修改次数的变量<code>modCount</code>都是<code>transient</code>修饰的，说明这两个属性不参与序列化。</li>
+</ul>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        transient关键字作用
+    </div>
+    <div class='spoiler-content'>
+        <p>　　Java的serialization(序列化机制)提供了一种持久化对象实例的机制，或者说存储对象状态的机制。当持久化对象时，可能有一个特殊的对象数据成员，我们不想用serialization机制来保存它。为了在一个特定对象的一个域上关闭serialization，可以在这个域前加上关键字transient，transient是Java语言的关键字，用来表示一个域不是该对象串行化的一部分。当一个对象被串行化的时候，transient型变量的值不包括在串行化的表示中，然而非transient型的变量是被包括进去的。例如序列化对象的时候，有些属性就不会序列化到指定的目的地中。说白了serialization就是把对象的状态存储到硬盘上去，等需要的时候就可以再把它读出来使用。有些时候像银行卡号这些字段是不希望在网络上传输的，transient的作用就是把这个字段的生命周期限定仅仅在内存中，不会被写到磁盘中。</p>
+<ul>
+<li><code>modCount</code>：记录集合被修改次数。<code>ArrayList</code>是不同步的，因此在并发修改的环境中会造成数据错乱，<code>java</code>提供快速失败机制来检测并发错误，而<code>modCount</code>则是实现快速机制的核心。</li>
+<li>两个空对象数组实例：<code>EMPTY_ELEMENTDATA</code>的存在是为了将其与<code>DEFAULTCAPACITY_EMPTY_ELEMENTDATA</code>分开来，以便了解第一次添加元素时应该设置多大的容量。在接下来的构造方法和添加方法会解释其原因所在。</li>
+</ul>
+
+    </div>
+</div>
+
+<h2 id="3-2-构造方法"><a href="#3-2-构造方法" class="headerlink" title="3.2 构造方法"></a>3.2 构造方法</h2><p>　　在API中构造方法如下：</p>
+<table>
+<thead>
+<tr>
+<th align="left">构造方法</th>
+<th>方法描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>ArrayList()</code></td>
+<td>构造一个初始容量为 <code>10</code> 的空列表。</td>
+</tr>
+<tr>
+<td align="left"><code>ArrayList(int initialCapacity)</code></td>
+<td>构造具有指定初始容量的空列表。</td>
+</tr>
+<tr>
+<td align="left"><code>ArrayList(Collection&lt;? extends E&gt; c)</code></td>
+<td>构造一个包含指定集合的元素的列表，按照它们由集合的迭代器返回的顺序。</td>
+</tr>
+</tbody></table>
+<h3 id="3-2-1-空参构造方法"><a href="#3-2-1-空参构造方法" class="headerlink" title="3.2.1 空参构造方法"></a>3.2.1 空参构造方法</h3><div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        空参构造方法
+    </div>
+    <div class='spoiler-content'>
+        <figure class="highlight java"><figcaption><span>ArrayList()</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayList</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">        <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">RandomAccess</span>, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span>&#123;</span><br><span class="line">    <span class="comment">//默认空对象数组实例</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = &#123;&#125;;</span><br><span class="line">    <span class="comment">//底层数组</span></span><br><span class="line">    <span class="keyword">transient</span> Object[] elementData;</span><br><span class="line">    <span class="comment">//无参构造</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ArrayList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//将elementData指向默认空对象数组实例</span></span><br><span class="line">        <span class="keyword">this</span>.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+</div>
+
+<p>　　<strong>此时初始容量是0，而不是 10</strong>。空参构造函数并未用默认初始容量<code>DEFAULT_CAPACITY</code>创建新数组，只是将底层数组引用 <code>elementData</code>指向已经创建好的默认空对象数组实例<code>DEFAULTCAPACITY_EMPTY_ELEMENTDATA</code>  。</p>
+<blockquote>
+<p>　注意：</p>
+<p>　　通过<strong>空参构造函数</strong>创建的集合：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ArrayList list = <span class="keyword">new</span> ArrayList();</span><br></pre></td></tr></table></figure>
+
+<p>　　<strong>此时集合长度是0.</strong></p>
+</blockquote>
+<h3 id="3-2-1-有参构造方法"><a href="#3-2-1-有参构造方法" class="headerlink" title="3.2.1 有参构造方法"></a>3.2.1 有参构造方法</h3><div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        有参构造方法1
+    </div>
+    <div class='spoiler-content'>
+        <figure class="highlight java"><figcaption><span>ArrayList(int initialCapacity)</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayList</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">        <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">RandomAccess</span>, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span>&#123;</span><br><span class="line">    	<span class="comment">//底层数组</span></span><br><span class="line">  		<span class="keyword">transient</span> Object[] elementData;</span><br><span class="line">    </span><br><span class="line">    	<span class="comment">/**</span></span><br><span class="line"><span class="comment">   		 * <span class="doctag">@param</span>  initialCapacity  指定的初始容量</span></span><br><span class="line"><span class="comment">     	 */</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="title">ArrayList</span><span class="params">(<span class="keyword">int</span> initialCapacity)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (initialCapacity &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">//指定容量大于0，则创建一个指定容量的数组</span></span><br><span class="line">            <span class="keyword">this</span>.elementData = <span class="keyword">new</span> Object[initialCapacity];</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (initialCapacity == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">//指定容量等于0，将elementData指向空对象数组实例</span></span><br><span class="line">            <span class="keyword">this</span>.elementData = EMPTY_ELEMENTDATA;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//指定容量小于0，抛出非法参数异常</span></span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">&quot;Illegal Capacity: &quot;</span>+</span><br><span class="line">                                               initialCapacity);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+</div>
+
+<p>　　可以知道当指定初始容等于0时，elementData是指向空对象数组实例<code>EMPTY_ELEMENTDATA</code>，而不是默认空对象数组实例<code>DEFAULTCAPACITY_EMPTY_ELEMENTDATA</code>，那么这样子做有什么用意呢？接下来在添加方法中便可知其原因。</p>
+<br>
+
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        有参构造方法2
+    </div>
+    <div class='spoiler-content'>
+        <figure class="highlight java"><figcaption><span>ArrayList(Collection<? extends E> c)</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayList</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">        <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">RandomAccess</span>, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span>&#123;</span><br><span class="line">    	<span class="comment">//底层数组</span></span><br><span class="line">  		<span class="keyword">transient</span> Object[] elementData;</span><br><span class="line">    </span><br><span class="line">    	<span class="comment">/**</span></span><br><span class="line"><span class="comment">    	 * 利用已有集合进行初始化</span></span><br><span class="line"><span class="comment">   		 * <span class="doctag">@param</span>  c  要将其元素放入ArrayList的集合</span></span><br><span class="line"><span class="comment">     	 */</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">ArrayList</span><span class="params">(Collection&lt;? extends E&gt; c)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//将c</span></span><br><span class="line">        Object[] a = c.toArray();</span><br><span class="line">        <span class="keyword">if</span> ((size = a.length) != <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (c.getClass() == ArrayList.class) &#123;</span><br><span class="line">                elementData = a;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                elementData = Arrays.copyOf(a, size, Object[].class);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// replace with empty array.</span></span><br><span class="line">            elementData = EMPTY_ELEMENTDATA;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+</div>
+
+<h2 id="3-3-添加方法"><a href="#3-3-添加方法" class="headerlink" title="3.3 添加方法"></a>3.3 添加方法</h2><h2 id="3-4-删除方法"><a href="#3-4-删除方法" class="headerlink" title="3.4 删除方法"></a>3.4 删除方法</h2><h2 id="3-5-修改方法"><a href="#3-5-修改方法" class="headerlink" title="3.5 修改方法"></a>3.5 修改方法</h2><h2 id="3-6-查找方法"><a href="#3-6-查找方法" class="headerlink" title="3.6 查找方法"></a>3.6 查找方法</h2><h2 id="3-7-转换方法"><a href="#3-7-转换方法" class="headerlink" title="3.7 转换方法"></a>3.7 转换方法</h2><h2 id="3-8-迭代器"><a href="#3-8-迭代器" class="headerlink" title="3.8 迭代器"></a>3.8 迭代器</h2><h2 id="3-9-判断方法"><a href="#3-9-判断方法" class="headerlink" title="3.9 判断方法"></a>3.9 判断方法</h2><p>参考资料：</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhangyinhua/p/7687377.html#_label2">https://www.cnblogs.com/zhangyinhua/p/7687377.html#_label2</a></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
     
