@@ -23,31 +23,33 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"chiayhon-cell.gitee.io","root":"/","images":"/images","scheme":"Muse","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
   </script>
-<meta name="description" content="渴望早睡晚起">
-<meta property="og:type" content="website">
-<meta property="og:title" content="chiayhon的小站">
-<meta property="og:url" content="http://chiayhon-cell.gitee.io/index.html">
+<meta name="description" content="1. lambda表达式    语法格式：                 示例                   123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【其他】Java 8 新特性">
+<meta property="og:url" content="http://chiayhon-cell.gitee.io/2021/02/01/%E3%80%90%E5%85%B6%E4%BB%96%E3%80%91Java-8-%E6%96%B0%E7%89%B9%E6%80%A7/index.html">
 <meta property="og:site_name" content="chiayhon的小站">
-<meta property="og:description" content="渴望早睡晚起">
+<meta property="og:description" content="1. lambda表达式    语法格式：                 示例                   123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-02-01T12:52:15.000Z">
+<meta property="article:modified_time" content="2021-02-01T12:56:18.188Z">
 <meta property="article:author" content="chiayhon">
-<meta property="article:tag" content="chiayhon&#39;s blog">
+<meta property="article:tag" content="JAVA SE">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://chiayhon-cell.gitee.io/">
+<link rel="canonical" href="http://chiayhon-cell.gitee.io/2021/02/01/%E3%80%90%E5%85%B6%E4%BB%96%E3%80%91Java-8-%E6%96%B0%E7%89%B9%E6%80%A7/">
 
 
 <script class="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
-<title>chiayhon的小站</title>
+<title>【其他】Java 8 新特性 | chiayhon的小站</title>
   
 
 
@@ -135,7 +137,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -148,6 +150,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-text">1. lambda表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3"><span class="nav-text">2. 函数式接口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8%E4%B8%8E%E6%9E%84%E9%80%A0%E5%99%A8%E5%BC%95%E7%94%A8"><span class="nav-text">3. 方法引用与构造器引用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8"><span class="nav-text">3.1 方法引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-%E6%9E%84%E9%80%A0%E5%99%A8%E5%BC%95%E7%94%A8"><span class="nav-text">3.2 构造器引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-%E6%95%B0%E7%BB%84%E5%BC%95%E7%94%A8"><span class="nav-text">3.3 数组引用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-Stream-API"><span class="nav-text">4. Stream API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-Stream%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="nav-text">4.1 Stream的创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-Stream%E7%9A%84%E4%B8%AD%E9%97%B4%E6%93%8D%E4%BD%9C"><span class="nav-text">4.2 Stream的中间操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-1-%E7%AD%9B%E9%80%89%E4%B8%8E%E5%88%87%E7%89%87"><span class="nav-text">4.2.1 筛选与切片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-2-%E6%98%A0%E5%B0%84"><span class="nav-text">4.2.2 映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-3-%E6%8E%92%E5%BA%8F"><span class="nav-text">4.2.3 排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-Stream%E7%9A%84%E7%BB%88%E6%AD%A2%E6%93%8D%E4%BD%9C"><span class="nav-text">4.3 Stream的终止操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-1-%E6%9F%A5%E6%89%BE%E4%B8%8E%E5%8C%B9%E9%85%8D"><span class="nav-text">4.3.1 查找与匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-2-%E5%BD%92%E7%BA%A6"><span class="nav-text">4.3.2 归约</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-3-%E6%94%B6%E9%9B%86"><span class="nav-text">4.3.3 收集</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E6%8E%A5%E5%8F%A3%E4%B8%AD%E7%9A%84%E9%BB%98%E8%AE%A4%E6%96%B9%E6%B3%95"><span class="nav-text">5. 接口中的默认方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E6%96%B0%E6%97%B6%E9%97%B4%E6%97%A5%E6%9C%9FAPI"><span class="nav-text">6. 新时间日期API</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-%E5%85%B6%E4%BB%96%E6%96%B0%E7%89%B9%E6%80%A7"><span class="nav-text">7. 其他新特性</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -200,9 +203,10 @@
 </noscript>
 
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
@@ -222,9 +226,9 @@
       <meta itemprop="name" content="chiayhon的小站">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/02/01/%E3%80%90%E5%85%B6%E4%BB%96%E3%80%91Java-8-%E6%96%B0%E7%89%B9%E6%80%A7/" class="post-title-link" itemprop="url">【其他】Java 8 新特性</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          【其他】Java 8 新特性
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -257,7 +261,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="1-lambda表达式"><a href="#1-lambda表达式" class="headerlink" title="1. lambda表达式"></a>1. lambda表达式</h1>
+        <h1 id="1-lambda表达式"><a href="#1-lambda表达式" class="headerlink" title="1. lambda表达式"></a>1. lambda表达式</h1>
 
 
 
@@ -397,7 +401,6 @@
 </div>
 
 <h1 id="5-接口中的默认方法"><a href="#5-接口中的默认方法" class="headerlink" title="5. 接口中的默认方法"></a>5. 接口中的默认方法</h1><h1 id="6-新时间日期API"><a href="#6-新时间日期API" class="headerlink" title="6. 新时间日期API"></a>6. 新时间日期API</h1><h1 id="7-其他新特性"><a href="#7-其他新特性" class="headerlink" title="7. 其他新特性"></a>7. 其他新特性</h1><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
-      
     </div>
 
     
@@ -405,708 +408,25 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
+          <div class="post-tags">
+              <a href="/tags/JAVA-SE/" rel="tag"># JAVA SE</a>
+          </div>
 
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://chiayhon-cell.gitee.io/2021/01/29/%E3%80%90%E9%9B%86%E5%90%88%E3%80%91ArrayList%E8%AF%A6%E8%A7%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="chiayhon">
-      <meta itemprop="description" content="渴望早睡晚起">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="chiayhon的小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/01/29/%E3%80%90%E9%9B%86%E5%90%88%E3%80%91ArrayList%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">【集合】ArrayList详解</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-01-29 20:03:00" itemprop="dateCreated datePublished" datetime="2021-01-29T20:03:00+08:00">2021-01-29</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-01-30 17:25:36" itemprop="dateModified" datetime="2021-01-30T17:25:36+08:00">2021-01-30</time>
-      </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>8.9k</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/01/29/%E3%80%90%E9%9B%86%E5%90%88%E3%80%91ArrayList%E8%AF%A6%E8%A7%A3/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://chiayhon-cell.gitee.io/2021/01/27/%E3%80%90%E9%9B%86%E5%90%88%E3%80%91Collection%E6%8E%A5%E5%8F%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="chiayhon">
-      <meta itemprop="description" content="渴望早睡晚起">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="chiayhon的小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/01/27/%E3%80%90%E9%9B%86%E5%90%88%E3%80%91Collection%E6%8E%A5%E5%8F%A3/" class="post-title-link" itemprop="url">【集合】Collection接口</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-01-27 21:55:24" itemprop="dateCreated datePublished" datetime="2021-01-27T21:55:24+08:00">2021-01-27</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-01-29 20:04:27" itemprop="dateModified" datetime="2021-01-29T20:04:27+08:00">2021-01-29</time>
-      </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>25k</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本篇主要介绍 Collection接口</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/01/27/%E3%80%90%E9%9B%86%E5%90%88%E3%80%91Collection%E6%8E%A5%E5%8F%A3/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/01/29/%E3%80%90%E9%9B%86%E5%90%88%E3%80%91ArrayList%E8%AF%A6%E8%A7%A3/" rel="prev" title="【集合】ArrayList详解">
+                  <i class="fa fa-chevron-left"></i> 【集合】ArrayList详解
+                </a>
             </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://chiayhon-cell.gitee.io/2021/01/25/%E3%80%90%E5%B8%B8%E7%94%A8%E7%B1%BB%E3%80%91%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="chiayhon">
-      <meta itemprop="description" content="渴望早睡晚起">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="chiayhon的小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/01/25/%E3%80%90%E5%B8%B8%E7%94%A8%E7%B1%BB%E3%80%91%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB/" class="post-title-link" itemprop="url">【常用类】字符串类</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-01-25 20:44:26" itemprop="dateCreated datePublished" datetime="2021-01-25T20:44:26+08:00">2021-01-25</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-01-29 17:15:05" itemprop="dateModified" datetime="2021-01-29T17:15:05+08:00">2021-01-29</time>
-      </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>15k</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本篇主要介绍字符串类 <code>String</code>、<code>StringBuilder</code>、<code>StringBuffer</code>的构造方法、常用的<code>API</code>、以及部分底层原理 。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/01/25/%E3%80%90%E5%B8%B8%E7%94%A8%E7%B1%BB%E3%80%91%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
+            <div class="post-nav-item">
             </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+          </div>
     </footer>
   </article>
 </div>
 
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://chiayhon-cell.gitee.io/2021/01/14/%E3%80%90%E7%AE%97%E6%B3%95%E3%80%91%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="chiayhon">
-      <meta itemprop="description" content="渴望早睡晚起">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="chiayhon的小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/01/14/%E3%80%90%E7%AE%97%E6%B3%95%E3%80%91%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" class="post-title-link" itemprop="url">【算法】冒泡排序</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-01-14 00:23:32" itemprop="dateCreated datePublished" datetime="2021-01-14T00:23:32+08:00">2021-01-14</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-01-25 08:56:43" itemprop="dateModified" datetime="2021-01-25T08:56:43+08:00">2021-01-25</time>
-      </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>3.5k</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>时间复杂度O(N^2^)，额外空间复杂度O(1)，实现可做到稳定性</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/01/14/%E3%80%90%E7%AE%97%E6%B3%95%E3%80%91%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://chiayhon-cell.gitee.io/2021/01/13/%E3%80%90JAVA-SE%E3%80%91%E4%B8%80%E3%80%81%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%B8%B8%E8%AF%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="chiayhon">
-      <meta itemprop="description" content="渴望早睡晚起">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="chiayhon的小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/01/13/%E3%80%90JAVA-SE%E3%80%91%E4%B8%80%E3%80%81%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%B8%B8%E8%AF%86/" class="post-title-link" itemprop="url">【JAVA SE】一、基本概念与常识</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-01-13 00:02:07" itemprop="dateCreated datePublished" datetime="2021-01-13T00:02:07+08:00">2021-01-13</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-01-25 09:31:43" itemprop="dateModified" datetime="2021-01-25T09:31:43+08:00">2021-01-25</time>
-      </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.9k</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>java基础总结</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/01/13/%E3%80%90JAVA-SE%E3%80%91%E4%B8%80%E3%80%81%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%B8%B8%E8%AF%86/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://chiayhon-cell.gitee.io/2020/12/31/Hexo3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="chiayhon">
-      <meta itemprop="description" content="渴望早睡晚起">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="chiayhon的小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/12/31/Hexo3/" class="post-title-link" itemprop="url">【Hexo+GitHub搭建个人博客】三、主题优化</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-12-31 13:30:06" itemprop="dateCreated datePublished" datetime="2020-12-31T13:30:06+08:00">2020-12-31</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-01-27 15:57:51" itemprop="dateModified" datetime="2021-01-27T15:57:51+08:00">2021-01-27</time>
-      </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>329</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前两篇分别介绍了如何搭建一个Hexo框架即如何利用其来进行写作，本篇主要针对Next主题对博客进行各项优化。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/12/31/Hexo3/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://chiayhon-cell.gitee.io/2020/12/31/Hexo2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="chiayhon">
-      <meta itemprop="description" content="渴望早睡晚起">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="chiayhon的小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/12/31/Hexo2/" class="post-title-link" itemprop="url">【Hexo+GitHub搭建个人博客】二、框架使用及技巧</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-12-31 12:48:42" itemprop="dateCreated datePublished" datetime="2020-12-31T12:48:42+08:00">2020-12-31</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-01-25 09:18:20" itemprop="dateModified" datetime="2021-01-25T09:18:20+08:00">2021-01-25</time>
-      </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>5.9k</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>　　在框架建立起来后，则接下来便是要学会如何使用，其中包括Hexo的命令包括初始化文件夹、新建博文、发布博文、启动本地服务器等等。同时学习如何使用一些小技巧，</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/12/31/Hexo2/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://chiayhon-cell.gitee.io/2020/12/31/Hexo1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="chiayhon">
-      <meta itemprop="description" content="渴望早睡晚起">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="chiayhon的小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/12/31/Hexo1/" class="post-title-link" itemprop="url">【Hexo+GitHub搭建个人博客】一、框架建立</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-12-31 10:50:00" itemprop="dateCreated datePublished" datetime="2020-12-31T10:50:00+08:00">2020-12-31</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-01-25 09:19:19" itemprop="dateModified" datetime="2021-01-25T09:19:19+08:00">2021-01-25</time>
-      </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.4k</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>　　当今市场上有着众多创作平台如知乎、微信公众好号、简书，为啥还要这么麻烦的去搭建一个个人博客？我想自己的答案就是想有一个安静的地方记录生活吧。不用注册登录账号、不用注意内容审核、不用担心文章消失，即使没有读者，我个人还是沉浸其中。</p>
-<p>　　对于博客的搭建，静态站点对于动态站点而言，有着相对较快的访问速度，能托管在 github 上简单又快捷，于是选择了目前流行且免费的 Hexo 框架</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/12/31/Hexo1/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
 
 
 
