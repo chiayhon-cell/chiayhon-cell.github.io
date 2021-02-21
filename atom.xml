@@ -6,7 +6,7 @@
   <link href="http://chiayhon-cell.gitee.io/atom.xml" rel="self"/>
   
   <link href="http://chiayhon-cell.gitee.io/"/>
-  <updated>2021-02-07T12:33:50.753Z</updated>
+  <updated>2021-02-21T14:48:20.456Z</updated>
   <id>http://chiayhon-cell.gitee.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【设计模式】七大原则</title>
+    <link href="http://chiayhon-cell.gitee.io/2021/02/21/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%91%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/"/>
+    <id>http://chiayhon-cell.gitee.io/2021/02/21/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%91%E4%B8%83%E5%A4%A7%E5%8E%9F%E5%88%99/</id>
+    <published>2021-02-21T14:48:20.000Z</published>
+    <updated>2021-02-21T14:48:20.456Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><a id="more"></a><h1 id="1-设计模式的目的"><a href="#1-设计模式的目的" class="headerlink" title="1 设计模式的目的"></a>1 设计模式的目的</h1><p>编写软件过程中，设计模式是为了让程序(软件)具有更好的特性，如下</p><ul><li><p><strong>代码重用性</strong>(即：相同功能的代码，不用多次编写)</p></li><li><p><strong>可读性、可维护性</strong>(即：编程规范性,便于其他程序员的阅读、理解、与维护)</p></li><li><p><strong>可扩展性</strong>(即：当需要增加新的功能时，非常的方便，称为可维护)</p></li><li><p><strong>可靠性</strong>(即：当我们增加新的功能后，对原来的功能没有影响)</p></li><li><p>使程序呈现<strong>高内聚，低耦合</strong>的特性</p></li></ul><p>在每学习完一种设计模式，都应该从以上特性为方向考虑它的优缺点</p><h1 id="2-七大设计原则"><a href="#2-七大设计原则" class="headerlink" title="2 七大设计原则"></a>2 七大设计原则</h1><h2 id="2-1-单一职责原则"><a href="#2-1-单一职责原则" class="headerlink" title="2.1 单一职责原则"></a>2.1 单一职责原则</h2><p>　　单一职责原则（Single Responsibility Principle，SRP）又称单一功能原则，由罗伯特·C.马丁（Robert C. Martin）于《敏捷软件开发：原则、模式和实践》一书中提出的。</p><h2 id="2-1-1-定义"><a href="#2-1-1-定义" class="headerlink" title="2.1.1 定义"></a>2.1.1 定义</h2><blockquote><p> 单一职责原则规定一个类应该有且仅有一个引起它变化的原因，否则类应该被拆分。</p><p>（There should never be more than one reason for a class to change）。　</p></blockquote><p>　　对类来说，一个类只负责一项职责。单一职责原则的<strong>核心</strong>就是<strong>控制类的粒度大小、将对象解耦、提高其内聚性</strong>。如果</p><h2 id="2-1-2-优点"><a href="#2-1-2-优点" class="headerlink" title="2.1.2 优点"></a>2.1.2 优点</h2><p>遵循单一职责原则将有以下优点。</p><ul><li><strong>降低类的复杂度</strong>()。一个类只负责一项职责，其逻辑肯定要比负责多项职责简单得多。</li><li>提高类的<strong>可读性</strong>。复杂性降低，自然其可读性会提高。</li><li>提高系统的<strong>可维护性</strong>。可读性提高，那自然更容易维护了。</li><li>变更引起的风险降低(<strong>提高可靠性</strong>)。变更是必然的，如果单一职责原则遵守得好，当修改一个功能时，可以显著降低对其他功能的影响。</li></ul><h2 id="2-1-3-实际问题"><a href="#2-1-3-实际问题" class="headerlink" title="2.1.3 实际问题"></a>2.1.3 实际问题</h2><h2 id="2-1-4-解决方案"><a href="#2-1-4-解决方案" class="headerlink" title="2.1.4 解决方案"></a>2.1.4 解决方案</h2><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;</summary>
+    
+    
+    
+    
+    <category term="设计模式" scheme="http://chiayhon-cell.gitee.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>【算法】算法题解</title>
